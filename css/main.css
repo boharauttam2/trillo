@@ -1,0 +1,514 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+@media (max-width: 654px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+.center-txt {
+  text-align: center;
+}
+
+.mb-md {
+  margin-bottom: 4.8rem;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    transform: scale();
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.282);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale();
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.282);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.header {
+  background-color: rgb(233, 227, 227);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__icon--search {
+  margin-left: -4rem;
+  fill: gray;
+}
+.header__icon--bookmark, .header__icon--chat {
+  fill: gray;
+  position: relative;
+}
+.header__bookmark, .header__chat {
+  position: relative;
+}
+.header__bookmark :is(.seven, .thirteen), .header__chat :is(.seven, .thirteen) {
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(221, 34, 103);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 12px;
+  right: -10px;
+}
+.header__logo {
+  width: 7rem;
+}
+.header__input-box {
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 740px) {
+  .header__input-box {
+    order: 1;
+    flex: 1 0 100%;
+    background-color: white;
+  }
+}
+.header__input {
+  padding: 1.4rem;
+  border-radius: 100px;
+  border: none;
+  width: 50%;
+  transition: all 0.5s;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 200;
+}
+.header__input:focus {
+  outline: none;
+  width: 55%;
+}
+@media (max-width: 740px) {
+  .header__input {
+    width: 100%;
+  }
+}
+.header__user {
+  display: flex;
+  align-self: stretch;
+}
+.header__user > * {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.header__user > *:hover {
+  background-color: gray;
+}
+.header__user span {
+  background-color: rgb(221, 34, 103);
+  color: white;
+}
+.header__img {
+  width: 6rem;
+}
+.header__img img {
+  border-radius: 50%;
+}
+
+.sidebar {
+  background-color: rgb(36, 36, 36);
+}
+.sidebar__list {
+  list-style-type: none;
+  padding: 1.2rem 0;
+}
+@media (max-width: 1180px) {
+  .sidebar__list {
+    display: flex;
+    align-items: center;
+  }
+}
+.sidebar a:link,
+.sidebar a:visited {
+  display: block;
+  padding: 1.4rem;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 1180px) {
+  .sidebar a:link,
+.sidebar a:visited {
+    flex: 1;
+  }
+}
+@media (max-width: 654px) {
+  .sidebar a:link,
+.sidebar a:visited {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.sidebar a:link:not(:last-child),
+.sidebar a:visited:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+@media (max-width: 1180px) {
+  .sidebar a:link:not(:last-child),
+.sidebar a:visited:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+.sidebar a::before {
+  content: "";
+  height: 100%;
+  width: 4px;
+  background-color: rgb(221, 34, 103);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+  transition: transform 0.5s, width 0.5s 0.3s;
+}
+.sidebar a:hover:before {
+  transform: scaleY(1);
+  width: 100%;
+}
+.sidebar a:active:before {
+  background-color: rgb(189, 28, 221);
+}
+.sidebar a > * {
+  z-index: 10;
+  position: relative;
+}
+.sidebar a > span {
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+.sidebar svg {
+  fill: white;
+}
+
+.gallery {
+  display: flex;
+}
+.gallery img {
+  display: block;
+}
+
+.overview {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.overview h1 {
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 0 1.4rem;
+}
+.overview__stars {
+  display: flex;
+  align-items: center;
+  margin-left: 1.2rem;
+}
+.overview__stars svg {
+  fill: rgb(221, 34, 103);
+}
+.overview__details {
+  color: rgb(221, 34, 103);
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.overview__details svg {
+  fill: currentColor;
+}
+.overview__details a:link,
+.overview__details a:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.overview__details .overview__address:hover {
+  -webkit-animation: pulsate 0.5s ease infinite;
+          animation: pulsate 0.5s ease infinite;
+}
+.overview__imgs {
+  display: flex;
+  margin-left: auto;
+}
+.overview__imgs figure {
+  width: 5rem;
+  height: 5rem;
+}
+.overview__imgs figure:not(:first-child) {
+  margin-left: -2rem;
+}
+.overview__imgs img {
+  border: 3px solid white;
+  border-radius: 50%;
+}
+.overview__customer {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+.overview__rating {
+  margin-left: 2rem;
+  padding: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(221, 34, 103);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.overview__rating div:first-child {
+  font-size: 3rem;
+  font-weight: 100;
+}
+.overview__rating div:last-child {
+  font-size: 1.2rem;
+}
+
+.hotel__description {
+  background-color: rgb(225, 220, 220);
+  padding: 3rem;
+}
+@media (max-width: 740px) {
+  .hotel__description {
+    padding: 0;
+  }
+}
+.hotel__description-txt {
+  padding: 3rem;
+  background-color: white;
+  flex-basis: 65%;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.292);
+}
+.hotel__description p:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+.hotel__description ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+.hotel__description ul li {
+  width: 50%;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.hotel__description ul li:before {
+  content: "";
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  margin-right: 1rem;
+  background-image: url("../img/chevron-thin-right.svg");
+  background-size: cover;
+}
+@supports ((-webkit-mask-image: url("")) or (mask-image: url(""))) or (-webkit-mask-image: url("")) {
+  .hotel__description ul li:before {
+    background-color: rgb(221, 34, 103);
+    -webkit-mask-image: url("../img/chevron-thin-right.svg");
+    mask-image: url("../img/chevron-thin-right.svg");
+    -webkit-mask-size: cover;
+            mask-size: cover;
+    background-image: none;
+  }
+}
+
+.content {
+  display: flex;
+}
+@media (max-width: 1180px) {
+  .content {
+    flex-direction: column;
+  }
+}
+
+.sidebar {
+  flex-basis: 20%;
+}
+
+.hotel {
+  flex: 1;
+}
+
+.hotel__description {
+  display: flex;
+}
+@media only screen and (max-width: 1180px) {
+  .hotel__description {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .hotel__description-txt {
+    margin-bottom: 3.2rem;
+  }
+}
+.hotel__description-reviews {
+  margin-left: 4.8rem;
+  flex: 1;
+}
+@media only screen and (max-width: 1300px) {
+  .hotel__description-reviews {
+    margin-left: 3.2rem;
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .hotel__description-reviews {
+    margin-left: 0;
+  }
+}
+@media (max-width: 740px) {
+  .hotel__description-reviews {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+.hotel__description-reviews :is(.box1, .box2) {
+  padding: 4.2rem 3.2rem;
+  margin-bottom: 4.2rem;
+  background-color: white;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.292);
+  position: relative;
+}
+@media only screen and (max-width: 1300px) {
+  .hotel__description-reviews :is(.box1, .box2) {
+    margin-bottom: 2.8rem;
+  }
+}
+.hotel__description-reviews :is(.box1, .box2)::before {
+  content: '"';
+  font-size: 18rem;
+  color: rgb(185, 179, 179);
+  position: absolute;
+  top: -6rem;
+  left: 0;
+}
+.hotel__description-reviews :is(.box1, .box2) img {
+  width: 6rem;
+  border-radius: 50%;
+}
+.hotel__description-reviews :is(.box1, .box2) div:last-child {
+  margin-left: auto;
+  font-family: inherit;
+}
+.hotel__description-reviews :is(.box1, .box2) div:nth-child(2) {
+  margin-left: 1.2rem;
+}
+.hotel__description-reviews :is(.box1, .box2) p {
+  margin-bottom: 1.2rem;
+  z-index: 20;
+}
+.hotel__description-customer {
+  display: flex;
+  align-items: center;
+}
+.hotel__description-rating {
+  font-size: 3rem;
+  font-weight: 200;
+  color: rgb(221, 34, 103);
+}
+.hotel__description-link:link, .hotel__description-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(221, 34, 103);
+  border-bottom: 2px solid currentColor;
+}
+.hotel__description-link:focus {
+  -webkit-animation: pulsate 0.5s infinite;
+          animation: pulsate 0.5s infinite;
+}
+
+.cta {
+  padding: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cta h2 {
+  font-weight: 200;
+  margin-bottom: 2.4rem;
+}
+.cta__btn {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100px;
+  background-image: linear-gradient(to bottom right, rgb(221, 34, 103), rgb(99, 8, 8));
+}
+.cta__btn:hover {
+  background-image: linear-gradient(to bottom left, rgb(221, 34, 103), rgb(75, 7, 7));
+}
+.cta__btn:hover .cta__link-after {
+  transform: translateY(0);
+}
+.cta__btn:hover .cta__link-before {
+  transform: translateY(200px);
+}
+.cta__link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 1.4rem 4rem;
+}
+.cta__link-after {
+  position: absolute;
+  color: white;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateY(-200%);
+  transition: all 0.5s;
+}/*# sourceMappingURL=main.css.map */
